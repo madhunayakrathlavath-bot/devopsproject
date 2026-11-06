@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Portal</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f2f4f8;
+        }
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+
+        input {
+            padding: 12px;
+            width: 250px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #123c69;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .jobs {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to Job Portal</h1>
+    <p>Find Your Dream Job Here</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#">Login</a>
+    <a href="#">Register</a>
+</nav>
+
+<div class="container">
+    <h2>Search for Jobs</h2>
+
+    <input type="text" id="search"
+           placeholder="Enter job title">
+
+    <button onclick="searchJobs()">Search</button>
+
+    <h2>Available Jobs</h2>
+
+    <div id="jobs">
+        <div class="jobs">
+            <h3>Java Developer</h3>
+            <p>Company: TCS</p>
+            <p>Location: Hyderabad</p>
+            <button onclick="applyJob('Java Developer')">
+                Apply Now
+            </button>
+        </div>
+
+        <div class="jobs">
+            <h3>Python Developer</h3>
+            <p>Company: Infosys</p>
+            <p>Location: Bangalore</p>
+            <button onclick="applyJob('Python Developer')">
+                Apply Now
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchJobs() {
+        let value = document.getElementById("search")
+            .value.toLowerCase();
+
+        let jobs = document.querySelectorAll(".jobs");
+
+        jobs.forEach(job => {
+            job.style.display =
+                job.innerText.toLowerCase().includes(value)
+                ? "block" : "none";
+        });
+    }
+
+    function applyJob(title) {
+        alert("You selected: " + title);
+    }
+</script>
+
+</body>
+</html>
